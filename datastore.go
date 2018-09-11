@@ -8,8 +8,8 @@ import (
 	osh "github.com/Kubuxu/go-os-helper"
 	badger "github.com/dgraph-io/badger"
 
-	ds "github.com/ipfs/go-datastore"
-	dsq "github.com/ipfs/go-datastore/query"
+	ds "github.com/dms3-fs/go-datastore"
+	dsq "github.com/dms3-fs/go-datastore/query"
 	goprocess "github.com/jbenet/goprocess"
 )
 
@@ -63,7 +63,7 @@ func NewDatastore(path string, options *Options) (*Datastore, error) {
 	kv, err := badger.Open(opt)
 	if err != nil {
 		if strings.HasPrefix(err.Error(), "manifest has unsupported version:") {
-			err = fmt.Errorf("unsupported badger version, use github.com/ipfs/badgerds-upgrade to upgrade: %s", err.Error())
+			err = fmt.Errorf("unsupported badger version, use github.com/dms3-fs/badgerds-upgrade to upgrade: %s", err.Error())
 		}
 		return nil, err
 	}
